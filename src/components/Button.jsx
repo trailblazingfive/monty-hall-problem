@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from 'styled-components';
 
 
@@ -12,6 +12,7 @@ const Button = (props) => {
     <div>
       <StyledButton
         className="Button"
+        onClick={() => props.simulate(props.sampleSize,true,3)}
       >
         {props.label}
       </StyledButton>

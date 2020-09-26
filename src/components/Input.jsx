@@ -5,19 +5,19 @@ const StyledInput = styled.input`
   border: 2px solid #000000;
   text-align: center;
   padding: 10px;
-  margin: 30px;
+  margin: 5px;
 `
 
 const Input = (props) => {
 
-  const [simNumber, setSimNumber] = useState(props.initial);
+  const [sampleSize, setSampleSize] = useState(props.initial);
 
   return (
     <div>
       <StyledInput
         type="text"
-        value={simNumber}
-        onChange={event => setSimNumber(event.target.value)}
+        placeholder={'Sample size'}
+        onChange={event => setSampleSize(event.target.value)}
       >
       </StyledInput>
     </div>
