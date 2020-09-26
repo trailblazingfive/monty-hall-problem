@@ -2,11 +2,25 @@
 
 .App {
   text-align: center;
-  width: 100%;
+  width: 60%;
 }
 
 .StrategySelection {
   display: flex;
   flex-direction: row;
   width: 30%;
+  align-items: center;
+  justify-content: center;
+}
+
+.Settings {
+  border: 2px solid #000000;
+  padding: 30px;
+  margin: 10px;
+}
+
+.Title {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 3em;
 }
