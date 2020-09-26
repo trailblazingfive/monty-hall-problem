@@ -1,14 +1,16 @@
+const DECIMALS = 3
+
 const getRandomInt = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-const selectRandomArray = (array) => {
+const selectRandomArrayElement = (array) => {
   return array[Math.floor(Math.random() * array.length)]
 }
 
-const generateNNumberArray = (size) => {
+const generateNSizeArray = (size) => {
   let array = []
   for (i = 0; i < size; i++) {
     array.push(i)
@@ -16,35 +18,33 @@ const generateNNumberArray = (size) => {
   return array
 }
 
-let simNumber = 1000
-let wins = 0
-let keep = true
-let numberOfDoors = 2
-let doors = generateNNumberArray(numberOfDoors)
-
-for (let i = 0; i < simNumber; i++) {
-  let options = doors;
-  let prizePosition = getRandomInt(0, (numberOfDoors - 1));
-  let playerPick = getRandomInt(0, (numberOfDoors - 1));
-  let showOptions = doors.filter(door => (door !== prizePosition && door !== playerPick))
-  let showed = selectRandomArray(showOptions)
-  options = options.filter(option => option !== showed)
-  console.log(`sim no ${i}`)
-  console.log(`prize position ${prizePosition}`)
-  console.log(`player pick ${playerPick}`)
-  console.log(`show options ${showOptions}`)
-  console.log(`showed door ${showed}`)
-  console.log(`options door ${options}`)
-  if (!keep) {
-    playerPick = options.filter(option => option !== playerPick)[0]
-    console.log(`changing pick`)
-    console.log(`player pick ${playerPick}`)
+const simulateMonty = (sampleSize, keep = false, numberOfDoors = 3) => {
+  let wins = 0
+  let doors = generateNSizeArray(numberOfDoors)
+  for (let i = 0; i < sampleSize; i++) {
+    let options = doors;
+    let prizePosition = getRandomInt(0, (numberOfDoors - 1));
+    let playerPick = getRandomInt(0, (numberOfDoors - 1));
+    let showOptions = doors.filter(door => (door !== prizePosition && door !== playerPick))
+    let showed = selectRandomArrayElement(showOptions)
+    options = options.filter(option => option !== showed)
+    if (!keep) {
+      playerPick = selectRandomArrayElement(options.filter(option => option !== playerPick))
+    }
+    if (playerPick === prizePosition) {
+      wins += 1
+    }
   }
-  if (playerPick === prizePosition) {
-    wins += 1
+  return {
+    sampleSize: sampleSize,
+    wins: wins,
+    keep: keep,
+    numberOfDoors: numberOfDoors,
+    winRate: Number((wins/sampleSize).toFixed(DECIMALS))
   }
-  console.log(`-----break-----`)
 }
 
-console.log(`wins: ${wins}/${simNumber}`)
+// console.log(simulateMonty(10000,false,3))
+// console.log(simulateMonty(10000,true,3))
 
+module.exports = {simulateMonty}
