@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:2077/monty'
+const apiUrl = '/monty'
 
 async function fetchMontySimulation(baseUrl, sampleSize, keep, numberOfDoors) {
   try {
