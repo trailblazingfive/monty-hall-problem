@@ -7,6 +7,15 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <div className="credit">
+      <a
+        href="https://github.com/trailblazingfive"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        by trailblazingfive 2020
+      </a>
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
