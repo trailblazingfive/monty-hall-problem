@@ -18,12 +18,12 @@ backend.get('/monty/', async (req, res) => {
   let result = monty.simulateMonty(sampleSize,keep,numberOfDoors)
   console.log(result)
   await res.send(result)
-  console.log(`result returned`)
+  console.log(`Simulation result returned`)
 
 })
 
 backend.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${PORT}`)
+  console.log(`Monty Hall Problem backend listening at http://localhost:${PORT}`)
 })
 
 // localhost:2077/monty/?sampleSize=100000&keep=true&numberOfDoors=3
