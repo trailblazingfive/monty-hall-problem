@@ -3,7 +3,7 @@ import './App.css';
 import Input from "./components/Input";
 import Button from "./components/Button";
 import ButtonToggle from "./components/ButtonToggle";
-import Results from "./components/Results"
+import Output from "./components/Output"
 import Frame from "./components/Frame"
 import Backdrop from "./components/Backdrop";
 import LoadingBackdrop from "./components/LoadingBackdrop";
@@ -18,6 +18,9 @@ const App = () => {
 
   const [simulation, setSimulation] = useState({})
   const [loading, setLoading] = useState(false)
+  const [sampleSize, setSampleSize] = useState(0)
+
+  const cbSampleSize = (sampleSize) => setSampleSize(sampleSize)
 
   const simulate = async (sampleSize, keep, numberOfDoors) => {
     setLoading(true)
@@ -41,16 +44,16 @@ const App = () => {
 
       <div className="Settings">
         <Frame title="Controls">
-          <Input initial={0} />
+          <Input initial={0} cbSampleSize={cbSampleSize}/>
           <div className="StrategySelection">
             <ButtonToggle label="Keep" />
             <ButtonToggle label="Change" />
           </div>
           <h2 className="Center">{loading ? "Computing results" : ""}</h2>
-          <Button label="Compute" simulate={simulate} sampleSize={1000} />
+          <Button label="Run simulation" simulate={simulate} sampleSize={sampleSize} />
         </Frame>
         <Frame title="Results">
-          <Results simulation={simulation}></Results>
+          <Output simulation={simulation}></Output>
         </Frame>
       </div>
       <Backdrop/>
