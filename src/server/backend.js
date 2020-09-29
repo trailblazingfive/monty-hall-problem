@@ -1,17 +1,12 @@
 const express = require('express')
+const path = require('path');
 const cors = require('cors')
 const monty = require('./monty.js')
-const backend = express()
-backend.use(cors())
+const app = express()
+app.use(cors())
 const PORT = 2077
 
-// backend.all('/', function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-//   next();
-//  });
-
-backend.get('/monty/', async (req, res) => {
+app.get('/monty/', async (req, res) => {
   let sampleSize = Number(req.query.sampleSize)
   let keep = Boolean(req.query.keep)
   let numberOfDoors = Number(req.query.numberOfDoors)
@@ -19,10 +14,9 @@ backend.get('/monty/', async (req, res) => {
   console.log(result)
   await res.send(result)
   console.log(`Simulation result returned`)
-
 })
 
-backend.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Monty Hall Problem backend listening at http://localhost:${PORT}`)
 })
 
