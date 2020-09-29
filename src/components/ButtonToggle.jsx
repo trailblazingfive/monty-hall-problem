@@ -10,7 +10,6 @@ const StyledButton = styled.button`
   @media screen and (min-width:300px) and (max-width:800px) {
     width: 80px;
   }
-}
 `
 
 const ButtonToggle = (props) => {
