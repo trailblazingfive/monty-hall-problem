@@ -14,9 +14,9 @@ const Button = (props) => {
     <div className="Center">
       <StyledButton
         className="Button"
-        onClick={() => props.simulate(props.sampleSize,true,3)}
+        onClick={() => props.simulate(props.sampleSize,props.keep,3)}
       >
-        {props.label}
+        Run simulation
       </StyledButton>
     </div>
   )
