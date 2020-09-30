@@ -10,12 +10,12 @@ const BUILD = '/../../build'
 
 app.use(cors())
 app.use(express.static(path.join(__dirname, BUILD)));
+app.use(bodyParser.json())
 
-
-app.get('/api/monty/', async (req, res) => {
-  let sampleSize = Number(req.query.sampleSize)
-  let keep = Boolean(req.query.keep)
-  let numberOfDoors = Number(req.query.numberOfDoors)
+app.post('/api/monty/', async (req, res) => {
+  let sampleSize = req.body.sampleSize
+  let keep = req.body.keep
+  let numberOfDoors = req.body.numberOfDoors
   let result = monty.simulateMonty(sampleSize,keep,numberOfDoors)
   console.log(result)
   await res.send(result)
