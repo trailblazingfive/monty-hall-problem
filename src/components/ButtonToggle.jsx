@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
 import './css/Button.css';
+import '../App.css';
+
 
 
 const StyledButton = styled.button`
@@ -13,17 +15,33 @@ const StyledButton = styled.button`
 `
 
 const ButtonToggle = (props) => {
-  const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState(props.keep)
 
   return (
-    <div>
+    <div className="StrategySelection">
       <StyledButton
-        onClick={() => {setToggle(!toggle)}}
+        onClick={() => {
+          props.cbSetKeep(true)
+          setToggle(!toggle)
+          props.cbSetFresh(false)
+        }}
         toggle={toggle}
         className="Button"
       >
-        {props.label}
+        Keep
       </StyledButton>
+      <StyledButton
+        onClick={() => {
+          props.cbSetKeep(false)
+          setToggle(!toggle)
+          props.cbSetFresh(false)
+        }}
+        toggle={!toggle}
+        className="Button"
+      >
+        Change
+      </StyledButton>
+      
     </div>
   )
 }
