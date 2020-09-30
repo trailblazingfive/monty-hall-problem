@@ -8,7 +8,7 @@
 .StrategySelection {
   display: flex;
   flex-direction: row;
-  width: 30%;
+  width: 100%;
   align-items: center;
   justify-content: center;
 }
