@@ -18,15 +18,35 @@ const App = () => {
   const [sampleSize, setSampleSize] = useState(0)
   const [keep, setKeep] = useState(true);
   const [fresh, setFresh] = useState(false);
+  const [msg, setMsg] = useState('')
 
-  const cbSampleSize = (sampleSize) => setSampleSize(sampleSize)
+  const cbSampleSize = (sampleSize) => setSampleSize(Number(sampleSize))
 
   const simulate = async (sampleSize, keep, numberOfDoors) => {
+    setMsg('Waiting for computation results...')
     setLoading(true)
     const res = await fetchMonty(sampleSize, keep, numberOfDoors)
     setSimulation(res)
     setLoading(false)
     setFresh(true)
+  }
+
+  const inputCheck = (sampleSize, keep, numberOfDoors) => {
+    if (isNaN(sampleSize)) {
+      setMsg('Sample size should be an integer')
+      setLoading(true)
+      setFresh(false)
+    } else if (sampleSize <= 0) {
+      setMsg('Sample size should be a positive integer')
+      setLoading(true)
+      setFresh(false)
+    } else if (!Number.isInteger(sampleSize)){
+      setMsg('Sample size shouldn\'t be a float')
+      setLoading(true)
+      setFresh(false)
+    } else {
+      simulate(sampleSize, keep, numberOfDoors);
+    }
   }
 
   const cbSetKeep = (keep) => setKeep(keep);
@@ -47,24 +67,23 @@ const App = () => {
       </div>
 
       <div className="Settings">
-        <Frame title="Controls">
+        <Frame title="Controls" show={true}>
           <Input initial={0} cbSampleSize={cbSampleSize} />
           <ButtonToggle
             cbSetKeep={cbSetKeep}
             keep={keep}
-            cbSetFresh={cbSetFresh}
           />
-          <h2 className="Center">{loading ? "Computing results" : ""}</h2>
           <Button
             label="Run simulation"
-            simulate={simulate}
+            simulate={inputCheck}
             sampleSize={sampleSize}
             keep={keep}
             cbSetFresh={cbSetFresh}
           />
+          <h2 className="Center">{loading ? msg : ""}</h2>
         </Frame>
-        <Frame title="Results">
-          <Output simulation={simulation} keep={keep} fresh={fresh}></Output>
+        <Frame title="Results" show={fresh}>
+          <Output simulation={simulation} keep={keep}></Output>
         </Frame>
       </div>
       <Backdrop />
