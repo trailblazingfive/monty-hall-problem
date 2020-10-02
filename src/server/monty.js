@@ -36,7 +36,7 @@ const simulateMonty = (sampleSize, keep = false, numberOfDoors = 3) => {
     }
   }
   return {
-    sampleSize: sampleSize,
+    sampleSize: Number(sampleSize),
     wins: wins,
     keep: keep,
     numberOfDoors: numberOfDoors,
