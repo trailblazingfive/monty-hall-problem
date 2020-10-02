@@ -23,7 +23,6 @@ const ButtonToggle = (props) => {
         onClick={() => {
           props.cbSetKeep(true)
           setToggle(!toggle)
-          props.cbSetFresh(false)
         }}
         toggle={toggle}
         className="Button"
@@ -34,7 +33,6 @@ const ButtonToggle = (props) => {
         onClick={() => {
           props.cbSetKeep(false)
           setToggle(!toggle)
-          props.cbSetFresh(false)
         }}
         toggle={!toggle}
         className="Button"
