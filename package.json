@@ -18,8 +18,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "backend": "node src/server/backend.js",
-    "fullstack": "npm run build && node src/server/backend.js"
+    "server": "node src/server/backend.js",
+    "monty-app": "npm run build && node src/server/backend.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,5 +36,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:2077"
+  "proxy": "http://localhost:3100"
 }
