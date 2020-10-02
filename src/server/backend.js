@@ -5,7 +5,7 @@ const cors = require('cors')
 const monty = require('./monty.js')
 const app = express()
 
-const PORT = 2077
+const PORT = 3100
 const BUILD = '/../../build'
 
 app.use(cors())
