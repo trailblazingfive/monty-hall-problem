@@ -6,6 +6,7 @@ const StyledFrame = styled.div`
   padding: 10px;
   margin: 30px;
   vertical-align: top;
+  display: ${props => props.show ? 'block' : 'none'};
 `
 const FrameTitle = styled.p`
   position: relative;
@@ -21,7 +22,7 @@ const FrameTitle = styled.p`
 const Frame = (props) => {
 
   return (
-    <StyledFrame>
+    <StyledFrame show={props.show}>
       <FrameTitle>{props.title}</FrameTitle>
       {props.children}
     </StyledFrame>
