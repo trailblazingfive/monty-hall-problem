@@ -17,9 +17,10 @@ app.post('/api/monty/', async (req, res) => {
   let keep = req.body.keep
   let numberOfDoors = req.body.numberOfDoors
   let result = monty.simulateMonty(sampleSize,keep,numberOfDoors)
-  console.log(result)
+  // console.log(req.body)
+  // console.log(result)
   await res.send(result)
-  console.log(`Simulation result returned`)
+  // console.log(`Simulation result returned`)
 })
 
 app.get('/', function (req, res) {
@@ -27,9 +28,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(PORT, () => {
-  console.log(`Monty Hall Problem backend listening at http://localhost:${PORT}`)
+  console.log(`Monty Hall problem backend listening at http://localhost:${PORT}`)
 })
-
-
-
-// localhost:2077/api/monty/?sampleSize=100000&keep=true&numberOfDoors=3
