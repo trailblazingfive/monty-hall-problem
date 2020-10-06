@@ -88,6 +88,15 @@ const App = () => {
       </div>
       <Backdrop />
       <LoadingBackdrop />
+      <div className="credit">
+      <a
+        href="https://github.com/trailblazingfive"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        by trailblazingfive 2020
+      </a>
+    </div>
     </div>
   );
 }

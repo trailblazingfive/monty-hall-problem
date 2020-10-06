@@ -31,7 +31,7 @@
 }
 
 a h1 {
-  color: rgba(8, 134, 165, 0.6);
+  color: rgba(8, 134, 165, 1);
   text-decoration: none;
   font-family: Lobster;
   transform: skewY(-5deg);
@@ -39,7 +39,7 @@ a h1 {
 }
 
 a h1:hover {
-  color: rgba(8, 134, 165, 0.8);
+  color: rgba(8, 134, 165, 1);
   transform: scale(1.1) skewY(-5deg);
 }
 
@@ -51,10 +51,12 @@ a h1:hover {
   text-align: right;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.5);
+  /* color: blue; */
 }
 
 .credit a:hover {
   color: rgba(8, 134, 165, 0.8);
+  /* color: red !important; */
 }
 
 @media screen and (min-width:300px) and (max-width:800px) {

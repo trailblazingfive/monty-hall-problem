@@ -10,16 +10,7 @@ import { Provider } from 'react-redux'
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <App />
-    <div className="credit">
-      <a
-        href="https://github.com/trailblazingfive"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        by trailblazingfive 2020
-      </a>
-    </div>
+    <App/>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
