@@ -4,7 +4,6 @@ import './css/Button.css';
 import '../App.css';
 
 
-
 const StyledButton = styled.button`
   /* background-color: red; */
   background-color: ${props => props.toggle ? 'rgba(15, 248, 112, 0.8)' : 'rgba(255, 255, 255, 0.1)' };
@@ -39,7 +38,6 @@ const ButtonToggle = (props) => {
       >
         Change
       </StyledButton>
-      
     </div>
   )
 }

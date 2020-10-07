@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
-import './css/General.css'
 
 const StyledInput = styled.input`
   border: 1px solid #000000;
@@ -14,12 +13,16 @@ const StyledInput = styled.input`
   }
 `
 
+const InputContainer = styled.div`
+  text-align: center;
+`
+
 const Input = (props) => {
 
   const [sampleSize, setSampleSize] = useState(props.initial);
 
   return (
-    <div className="Center">
+    <InputContainer>
       <StyledInput
         type="text"
         placeholder={'Sample size'}
@@ -29,7 +32,7 @@ const Input = (props) => {
         }}
       >
       </StyledInput>
-    </div>
+    </InputContainer>
   );
 };
 

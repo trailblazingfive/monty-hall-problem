@@ -1,24 +1,24 @@
 import React from "react";
 import styled from 'styled-components';
 
-import './css/General.css'
-
-
 const StyledButton = styled.button`
+`
 
+const ButtonContainer = styled.div`
+  text-align: center;
 `
 
 const Button = (props) => {
 
   return (
-    <div className="Center">
+    <ButtonContainer>
       <StyledButton
         className="Button"
-        onClick={() => props.simulate(props.sampleSize,props.keep,3)}
+        onClick={() => props.simulate(props.sampleSize, props.keep, props.numberOfDoors)}
       >
         Run simulation
       </StyledButton>
-    </div>
+    </ButtonContainer>
   )
 }
 

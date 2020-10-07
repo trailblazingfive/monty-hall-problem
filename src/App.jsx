@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import './components/css/General.css'
 import Input from "./components/Input";
 import Button from "./components/Button";
 import ButtonToggle from "./components/ButtonToggle";
@@ -8,6 +7,8 @@ import Output from "./components/Output"
 import Frame from "./components/Frame"
 import Backdrop from "./components/Backdrop";
 import LoadingBackdrop from "./components/LoadingBackdrop";
+import Credit from "./components/Credit"
+import Title from "./components/Title"
 
 import { fetchMonty } from "./utils/fetchMonty"
 
@@ -52,20 +53,12 @@ const App = () => {
   const cbSetKeep = (keep) => setKeep(keep);
   const cbSetFresh = (fresh) => setFresh(fresh);
 
-  // change no print when mounted
-  // useEffect(() => {
-  //   setLoading(false)
-  //   setFresh(true)
-  // }, [simulation])
+  // number of simulation doors for specific case AKA Monty Hall problem
+  const numberOfDoors = 3
 
   return (
     <div className="App">
-      <div className="Title">
-        <a href="https://en.m.wikipedia.org/wiki/Monty_Hall_problem" target="_blank" rel="noopener noreferrer">
-          <h1 className="Title">Monty Hall problem</h1>
-        </a>
-      </div>
-
+      <Title/>
       <div className="Settings">
         <Frame title="Controls" show={true}>
           <Input initial={0} cbSampleSize={cbSampleSize} />
@@ -77,10 +70,11 @@ const App = () => {
             label="Run simulation"
             simulate={inputCheck}
             sampleSize={sampleSize}
+            numberOfDoors={numberOfDoors}
             keep={keep}
             cbSetFresh={cbSetFresh}
           />
-          <h2 className="Center">{loading ? msg : ""}</h2>
+          <h2 style={{textAlign: "center"}}>{loading ? msg : ""}</h2>
         </Frame>
         <Frame title="Results" show={fresh}>
           <Output simulation={simulation} keep={keep}></Output>
@@ -88,15 +82,7 @@ const App = () => {
       </div>
       <Backdrop />
       <LoadingBackdrop />
-      <div className="credit">
-      <a
-        href="https://github.com/trailblazingfive"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        by trailblazingfive 2020
-      </a>
-    </div>
+      <Credit/>
     </div>
   );
 }

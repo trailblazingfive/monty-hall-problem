@@ -21,47 +21,8 @@
   /* background-color: rgba(15, 248, 112, 0.5); */
 }
 
-.Title {
-  margin-top: 10px;
-  font-size: 3em;
-  text-align: center;
-  line-height: 50px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-a h1 {
-  color: rgba(8, 134, 165, 1);
-  text-decoration: none;
-  font-family: Lobster;
-  transform: skewY(-5deg);
-  margin: 30px;
-}
-
-a h1:hover {
-  color: rgba(8, 134, 165, 1);
-  transform: scale(1.1) skewY(-5deg);
-}
-
-.credit a {
-  position: fixed;
-  bottom: 0.5vw;
-  right: 0.5vw;
-  font-size: 0.8em;
-  text-align: right;
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.credit a:hover {
-  color: rgba(8, 134, 165, 0.8);
-}
-
 @media screen and (min-width:300px) and (max-width:800px) {
   .App {
     width: 98%;
-  }
-  .Title {
-    font-size: 2em;
   }
 }
