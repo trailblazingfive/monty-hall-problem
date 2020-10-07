@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Input from "./components/Input";
-import Button from "./components/Button";
-import ButtonToggle from "./components/ButtonToggle";
+import RunSimulation from "./components/RunSimulation";
+import StrategyToggle from "./components/StrategyToggle";
 import Output from "./components/Output"
 import Frame from "./components/Frame"
 import Backdrop from "./components/Backdrop";
@@ -53,20 +53,20 @@ const App = () => {
   const cbSetKeep = (keep) => setKeep(keep);
   const cbSetFresh = (fresh) => setFresh(fresh);
 
-  // number of simulation doors for specific case AKA Monty Hall problem
+  // number of doors for specific case AKA Monty Hall problem
   const numberOfDoors = 3
 
   return (
     <div className="App">
       <Title/>
-      <div className="Settings">
+      <div className="Output">
         <Frame title="Controls" show={true}>
           <Input initial={0} cbSampleSize={cbSampleSize} />
-          <ButtonToggle
+          <StrategyToggle
             cbSetKeep={cbSetKeep}
             keep={keep}
           />
-          <Button
+          <RunSimulation
             label="Run simulation"
             simulate={inputCheck}
             sampleSize={sampleSize}
