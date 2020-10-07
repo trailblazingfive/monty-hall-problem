@@ -5,7 +5,6 @@ import '../App.css';
 
 
 const StyledButton = styled.button`
-  /* background-color: red; */
   background-color: ${props => props.toggle ? 'rgba(15, 248, 112, 0.8)' : 'rgba(255, 255, 255, 0.1)' };
   width: 120px;
   @media screen and (min-width:300px) and (max-width:800px) {
@@ -13,7 +12,7 @@ const StyledButton = styled.button`
   }
 `
 
-const ButtonToggle = (props) => {
+const StrategyToggle = (props) => {
   const [toggle, setToggle] = useState(props.keep)
 
   return (
@@ -42,4 +41,4 @@ const ButtonToggle = (props) => {
   )
 }
 
-export default ButtonToggle;
+export default StrategyToggle;

@@ -8,7 +8,7 @@ const ButtonContainer = styled.div`
   text-align: center;
 `
 
-const Button = (props) => {
+const RunSimulation = (props) => {
 
   return (
     <ButtonContainer>
@@ -22,4 +22,4 @@ const Button = (props) => {
   )
 }
 
-export default Button;
+export default RunSimulation;
