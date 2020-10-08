@@ -13,8 +13,8 @@ The Monty Hall problem is a brain teaser, in the form of a probability puzzle, l
 Clone the repository and run `npm run install`.
 
 ## Development
-* Terminal #1 - run React frontend `npm run start` => [`localhost:3000`](http://localhost:3000)
-* Terminal #2 - run express backend `npm run server` => [`localhost:3100`](http://localhost:3100)
+* `Terminal #1` - run React frontend `npm run start` => [`localhost:3000`](http://localhost:3000)
+* `Terminal #2` - run express backend `npm run server` => [`localhost:3100`](http://localhost:3100)
 
 ## Testing
 
