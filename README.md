@@ -10,7 +10,7 @@ The Monty Hall problem is a brain teaser, in the form of a probability puzzle, l
 
 ## Setup
 
-Clone the repository and run `npm run install`.
+Clone the repository and run `npm install`.
 
 ## Development
 * `Terminal #1` - run React frontend `npm run start` => [`localhost:3000`](http://localhost:3000)
