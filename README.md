@@ -16,10 +16,6 @@ Clone the repository and run `npm run install`.
 * `Terminal #1` - run React frontend `npm run start` => [`localhost:3000`](http://localhost:3000)
 * `Terminal #2` - run express backend `npm run server` => [`localhost:3100`](http://localhost:3100)
 
-## Testing
-
-!add stuff here
-
 ## Production
 Run `npm run monty-app` builds the React frontend and serves it via express using static middleware at [`localhost:3100`](http://localhost:3100).
 
